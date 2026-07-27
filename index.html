@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | barrix27</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{
+background:#0d1117;
+color:#fff;
+}
+header{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#161b22,#21262d);
+}
+header h1{
+font-size:3rem;
+color:#58a6ff;
+}
+header p{
+margin-top:10px;
+color:#8b949e;
+}
+#buscar{
+display:block;
+margin:30px auto;
+width:90%;
+max-width:500px;
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:16px;
+outline:none;
+}
+
+.grid{
+width:90%;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding-bottom:40px;
+}
+
+.card{
+background:#161b22;
+border:1px solid #30363d;
+border-radius:15px;
+padding:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:#58a6ff;
+box-shadow:0 0 20px #58a6ff55;
+}
+
+.card h2{
+color:#58a6ff;
+margin-bottom:10px;
+}
+
+.tag{
+display:inline-block;
+padding:5px 10px;
+background:#238636;
+border-radius:20px;
+font-size:13px;
+margin:8px 0;
+}
+
+a{
+display:inline-block;
+margin-top:15px;
+padding:10px 15px;
+background:#238636;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+
+footer{
+padding:30px;
+text-align:center;
+color:#8b949e;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h1>💻 Portfolio GitHub</h1>
+
+<p>Repositorio de proyectos realizados por <b>barrix27</b></p>
+
+</header>
+
+<input id="buscar" placeholder="Buscar proyecto...">
+
+<div class="grid" id="repos"></div>
+
+<footer>
+14 proyectos • HTML • PHP • Python • SQL • JSON
+</footer>
+
+<script>
+
+const proyectos=[
+
+{
+n:"validar",
+l:"HTML",
+d:"Validación de formularios.",
+u:"https://github.com/barrix27/validar"
+},
+
+{
+n:"ABM",
+l:"PHP",
+d:"Sistema ABM (Alta, Baja y Modificación).",
+u:"https://github.com/barrix27/ABM"
+},
+
+{
+n:"Repaso",
+l:"Python",
+d:"Ejercicios de repaso.",
+u:"https://github.com/barrix27/Repaso"
+},
+
+{
+n:"proyecto4",
+l:"HTML",
+d:"Cuarto proyecto web.",
+u:"https://github.com/barrix27/proyecto4"
+},
+
+{
+n:"bd",
+l:"SQL",
+d:"Prácticas con bases de datos.",
+u:"https://github.com/barrix27/bd"
+},
+
+{
+n:"Clase2",
+l:"General",
+d:"Segunda práctica del curso.",
+u:"https://github.com/barrix27/Clase2"
+},
+
+{
+n:"contenedores",
+l:"General",
+d:"Prácticas sobre contenedores.",
+u:"https://github.com/barrix27/contenedores"
+},
+
+{
+n:"j.son",
+l:"JSON",
+d:"Ejercicios utilizando JSON.",
+u:"https://github.com/barrix27/j.son"
+},
+
+{
+n:"projecto02",
+l:"HTML",
+d:"Segundo proyecto web.",
+u:"https://github.com/barrix27/projecto02"
+},
+
+{
+n:"pagina2",
+l:"HTML",
+d:"Segunda página web.",
+u:"https://github.com/barrix27/pagina2"
+},
+
+{
+n:"huerta-proa-completa",
+l:"SQL",
+d:"Base de datos y proyecto de huerta.",
+u:"https://github.com/barrix27/huerta-proa-completa"
+},
+
+{
+n:"login",
+l:"HTML",
+d:"Formulario de inicio de sesión.",
+u:"https://github.com/barrix27/login"
+},
+
+{
+n:"Clase1",
+l:"Python",
+d:"Primeros ejercicios y prácticas en Python.",
+u:"https://github.com/barrix27/Clase1"
+},
+
+{
+n:"pagina",
+l:"HTML",
+d:"Primer sitio web.",
+u:"https://github.com/barrix27/pagina"
+}
+
+];
+
+const cont=document.getElementById("repos");
+
+function mostrar(lista){
+
+cont.innerHTML="";
+
+lista.forEach(p=>{
+
+cont.innerHTML+=`
+<div class="card">
+
+<h2>${p.n}</h2>
+
+<span class="tag">${p.l}</span>
+
+<p>${p.d}</p>
+
+<a href="${p.u}" target="_blank">
+Ver en GitHub
+</a>
+
+</div>
+`;
+
+});
+
+}
+
+mostrar(proyectos);
+
+document.getElementById("buscar").addEventListener("keyup",e=>{
+
+const t=e.target.value.toLowerCase();
+
+mostrar(proyectos.filter(p=>
+
+p.n.toLowerCase().includes(t) ||
+
+p.l.toLowerCase().includes(t) ||
+
+p.d.toLowerCase().includes(t)
+
+));
+
+});
+
+</script>
+
+</body>
+</html>
